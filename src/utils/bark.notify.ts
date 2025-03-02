@@ -74,9 +74,10 @@ export class BarkNotifier {
 
       // 发送通知
       const response = await axios.get(
-        `${this.barkUrl}/${encodeURIComponent(title)}/${encodeURIComponent(
-          content
-        )}?${params.toString()}`
+        `${this.barkUrl}/${encodeURIComponent(title)}/${encodeURIComponent(content)}?${params.toString()}`,
+        {
+          proxy: false  // 禁用代理
+        }
       );
 
       if (response.status === 200) {
